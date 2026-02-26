@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Brand colors */
+    --navy: 0.18 0.035 264;
+    --navy-light: 0.22 0.04 264;
+    --navy-dark: 0.13 0.025 264;
+    --emerald: 0.72 0.17 162;
+    --emerald-dark: 0.60 0.15 162;
+    --emerald-light: 0.85 0.12 162;
+
+    /* Semantic tokens - light mode (white sections) */
+    --background: 0.99 0 0;
+    --foreground: 0.15 0.02 264;
+    --card: 0.97 0 0;
+    --card-foreground: 0.18 0.02 264;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0 0;
+    --primary: 0.72 0.17 162;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.18 0.035 264;
+    --secondary-foreground: 0.99 0 0;
+    --muted: 0.95 0.005 264;
+    --muted-foreground: 0.48 0.02 264;
+    --accent: 0.72 0.17 162;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.90 0.01 264;
+    --input: 0.92 0.01 264;
+    --ring: 0.72 0.17 162;
+
+    --chart-1: 0.72 0.17 162;
+    --chart-2: 0.48 0.12 264;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.97 0.005 264;
+    --sidebar-foreground: 0.18 0.02 264;
+    --sidebar-primary: 0.72 0.17 162;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.93 0.01 264;
+    --sidebar-accent-foreground: 0.18 0.02 264;
+    --sidebar-border: 0.90 0.01 264;
+    --sidebar-ring: 0.72 0.17 162;
+  }
+
+  .dark {
+    --background: 0.18 0.035 264;
+    --foreground: 0.97 0.005 264;
+    --card: 0.22 0.04 264;
+    --card-foreground: 0.97 0 0;
+    --popover: 0.22 0.04 264;
+    --popover-foreground: 0.97 0 0;
+    --primary: 0.72 0.17 162;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.26 0.04 264;
+    --secondary-foreground: 0.97 0 0;
+    --muted: 0.26 0.04 264;
+    --muted-foreground: 0.65 0.02 264;
+    --accent: 0.72 0.17 162;
+    --accent-foreground: 0.99 0 0;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.985 0 0;
+    --border: 1 0 0 / 12%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.72 0.17 162;
+    --chart-1: 0.72 0.17 162;
+    --chart-2: 0.6 0.15 264;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+    --sidebar: 0.22 0.04 264;
+    --sidebar-foreground: 0.97 0 0;
+    --sidebar-primary: 0.72 0.17 162;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.26 0.04 264;
+    --sidebar-accent-foreground: 0.97 0 0;
+    --sidebar-border: 1 0 0 / 12%;
+    --sidebar-ring: 0.72 0.17 162;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Navy section */
+  .section-navy {
+    background-color: oklch(var(--navy));
+    color: oklch(0.97 0.005 264);
+  }
+
+  .section-navy-darker {
+    background-color: oklch(var(--navy-dark));
+    color: oklch(0.97 0.005 264);
+  }
+
+  /* Gradient backgrounds */
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.13 0.025 264) 0%,
+      oklch(0.18 0.045 240) 50%,
+      oklch(0.22 0.055 220) 100%
+    );
+  }
+
+  .text-emerald {
+    color: oklch(var(--emerald));
+  }
+
+  .bg-emerald {
+    background-color: oklch(var(--emerald));
+  }
+
+  .bg-emerald-dark {
+    background-color: oklch(var(--emerald-dark));
+  }
+
+  .border-emerald {
+    border-color: oklch(var(--emerald));
+  }
+
+  /* WhatsApp pulse animation */
+  @keyframes wa-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 oklch(0.55 0.20 145 / 60%);
+    }
+    50% {
+      box-shadow: 0 0 0 12px oklch(0.55 0.20 145 / 0%);
+    }
+  }
+
+  .whatsapp-pulse {
+    animation: wa-pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Fade-in on scroll */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fade-up 0.6s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fade-up 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fade-up 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-4 {
+    animation: fade-up 0.6s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+
+  /* Geometric decorative shapes */
+  .hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  /* Card hover */
+  .feature-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .pricing-card-popular {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 768px) {
+    .pricing-card-popular {
+      transform: scale(1);
+    }
+  }
+}
